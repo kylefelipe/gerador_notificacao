@@ -25,5 +25,4 @@ Foi criado, dentro do arquivo DOCX um estilo chamado "NORMAL2" que é aplicado a
 ela ser populada com os dados de cada item, pode-se modificar esse estilo no próprio DOCX ou criar um novo e mudar o
 o nome dentro da função "popula_tabela" em "funcoes_template".
 
-O nome do arquivo é salvo da seguinte maneira: NOTIFICAÇÃO Nº <NÚMERO DA NOTIFICAÇÃO> - <NOME DA EMPRESA>, nesse momento
-é são removidos os segintes caracteres especiais "[-,./\()]"  evitando erro na geração do arquivo.
+O nome do arquivo é salvo da seguinte maneira: NOTIFICAÇÃO Nº <NÚMERO DA NOTIFICAÇÃO> - <NOME DA EMPRESA>, nesse momento são removidos os segintes caracteres especiais "[-,./\()]"  evitando erro na geração do arquivo.
