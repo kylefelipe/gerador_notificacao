@@ -5,7 +5,7 @@
 # e uma planilha XLSX como base de dados.
 # é necessário ter um template preparado antes.
 #
-# Autor: Kyle Felipe Vieira Roberto
+# Author: Kyle Felipe Vieira Roberto
 # Data de Criação: quarta-feira 19 de julho de 2017
 #
 ##################################################################################
@@ -22,22 +22,37 @@ remover = "[-,./\()]"
 
 # Trabalhando a base de dados XLSX
 
-solicita_caderno = (input("Digite o nome do arquivo com os Dados:  "))
-caderno = load_workbook(filename=solicita_caderno+'.xlsx')
+while True:
+    try:
+        solicita_caderno = str(input("Digite o nome do arquivo com os Dados:  "))
+        caderno = load_workbook(filename=solicita_caderno + '.xlsx')
+        break
+    except:
+        print('Arquivo não encontrado, confira o nome do arquivo com a base de dados.')
 folha = caderno[funcoes_base_dados.escolhe_folha(caderno)]
 cnpjcpf = funcoes_base_dados.listar_documentos_contribuintes(folha)
 lista_documentos = funcoes_base_dados.listar_cnpjcpf_contribuintes(folha)
 total = len(cnpjcpf)  # Quantidade de notificaçeõs a serem feitas
 
 # Solicita o template para as notificações
-
-arquivo_base = input("Digite o nome do arquivo DOCX padrão: ")
+while True:
+    try:
+        arquivo_base = input("Digite o nome do arquivo DOCX padrão: ")
+        documento = Document(arquivo_base + '.docx')
+        break
+    except:
+        print('Arquivo não encontrado, confira o nome do arquivo do template.')
 
 # Solicita dados para a notificação
 
 print('Total de notificações: {}' .format(total))
 data_notificacao = input("Digite a data de emissão com o mês por extenso: ")
-notificacao_inicial = int(input("Qual o número da primeira notificação: "))  # Pega o número da primeira notificação
+while True:
+    try:
+        notificacao_inicial = int(input("Qual o número da primeira notificação: "))  # Pega o número da primeira notificação
+        break
+    except:
+        print('O número da notificação precisa ser um número inteiro')
 
 # Criando as notificações
 
@@ -73,7 +88,7 @@ for i in range(total):
     tabelas_dados = list(documento.tables)
     tabela_d = funcoes_template.popula_tabela(tabelas_dados, itens_notificacao, documento)
     tabelas_dados[0]=tabela_d
-
+    print('Gerando notificação nº {0} - {1}' .format(num_notificacao, nome_limpo))
     documento.save('NOTIFICAÇÃO nº {0} - {1} .docx' .format(num_notificacao, nome_limpo))
 
 
