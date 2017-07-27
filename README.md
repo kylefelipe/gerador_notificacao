@@ -4,7 +4,7 @@ Feito em Python 3.6, utilizando os módulos openpyxl e python-docx.
 Por Kyle Felipe Vieira Roberto
 Em Julho de 2017 para atender a demanda de emissão de diversas notificações que possuiam mais de um item por empresa.
 
-Utilizano um arquivo DOCX e um XLSX como base de dados, permite gerar uma série de documentos, tendo o DOCX como base.
+Utilizando um arquivo DOCX e um XLSX como base de dados, permite gerar uma série de documentos, tendo o DOCX como base.
 No DOCX tem um texto padrão, com algumas partes que podem ser modificadas, número da notificação, data, nome da empresa,
 número do CPF/CNPJ, e uma tabela, onde entrará os itens que devem constar da empresa.
 
